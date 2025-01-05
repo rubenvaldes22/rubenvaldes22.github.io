@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para el amor de mi vida</title>
+</head>
+<body>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #ffe6f2;
+        }
+
+        .heart, .star, .flower {
+            position: absolute;
+            animation: float 8s infinite ease-in-out;
+        }
+
+        .heart {
+            width: 50px;
+            height: 50px;
+            background-color: #ff6b81;
+            transform: rotate(45deg);
+        }
+
+        .heart:before,
+        .heart:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #ff6b81;
+            border-radius: 50%;
+        }
+
+        .heart:before {
+            top: -25px;
+            left: 0;
+        }
+
+        .heart:after {
+            left: -25px;
+            top: 0;
+        }
+
+        .star {
+            width: 30px;
+            height: 30px;
+            background-color: #ffd700;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+
+        .flower {
+            width: 40px;
+            height: 40px;
+            background-color: #ff69b4;
+            border-radius: 50%;
+            box-shadow: 0 0 0 10px #ff69b4 inset, 15px 15px 0 0 #ff69b4, -15px 15px 0 0 #ff69b4, -15px -15px 0 0 #ff69b4, 15px -15px 0 0 #ff69b4;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
+        }
+    </style>
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+
+            const randomSize = Math.random() * 20 + 20;
+            heart.style.width = `${randomSize}px`;
+            heart.style.height = `${randomSize}px`;
+            heart.style.left = `${Math.random() * 100}vw`;
+            heart.style.animationDuration = `${Math.random() * 5 + 5}s`;
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 8000);
+        }
+
+        function createStar() {
+            const star = document.createElement('div');
+            star.classList.add('star');
+
+            star.style.left = `${Math.random() * 100}vw`;
+            star.style.animationDuration = `${Math.random() * 5 + 7}s`;
+
+            document.body.appendChild(star);
+
+            setTimeout(() => {
+                star.remove();
+            }, 8000);
+        }
+
+        function createFlower() {
+            const flower = document.createElement('div');
+            flower.classList.add('flower');
+
+            flower.style.left = `${Math.random() * 100}vw`;
+            flower.style.animationDuration = `${Math.random() * 5 + 6}s`;
+
+            document.body.appendChild(flower);
+
+            setTimeout(() => {
+                flower.remove();
+            }, 8000);
+        }
+
+        setInterval(createHeart, 300);
+        setInterval(createStar, 500);
+        setInterval(createFlower, 800);
+    </script>
+    <script>
+        function verificarFecha(event) {
+            event.preventDefault();
+            const inputFecha = document.querySelector('input[type="date"]').value;
+            const fechaPermitida = "2023-09-24";
+
+            if (inputFecha === fechaPermitida) {
+                document.getElementById("contenido").style.display = "block";
+            } else {
+                alert("Por favor, selecciona la fecha correcta.");
+            }
+        }
+    </script>
+    
+    <h1>Y llegó el momento...</h1>
+    <p><blockquote>Bueno, llegó tu momento y para hacerlo un poco diferente y no de la misma manera que tu, quiero rayarme la cabeza por aquí y hacerlo lo mejor posible, sé que no te lo esperas de mi pero cuando leas esto vas a estar sentada a mi derecha con una sonrisa en la cara y antes de que te dé todos tus regalitos que he tenido muchas ganas de llegar hasta aquí y ya sabras y tendrás algo puesto de los regalos de ayer, los zapatooos, el tocadoor y la sudadera</blockquote></p>
+    <h2>Mivida💙💍</h2>
+    <p><blockquote>Estoy muy orgulloso de estos dos años que hemos podido celebrar nuestro cumpleaños juntoos, que no puede ser mejor manera que contigo, y espero que sientas lo mismo conmigo, eres super importante para mi y la razón de mi felicidad cada día desde que te conocí aunque no te tuviera desde un principio, solo pienso en hacerte sentir agradecida con la vida de que me hayas encontrado por el camino, con mis virtudes y mis defectos pero con la certeza de que quiero estar contigo el resto de mis días, hasta que me muera y segundos antes te pueda dar la mano para decirte lo mucho que te he amado y prometerte que en otra vida nos reencontraremos</blockquote></p>
+
+    <form onsubmit="verificarFecha(event)">
+        <fieldset>
+            <legend>¿Cual es nuestra fecha?</legend>
+            <label>
+                <input type="date" name="fecha" min="24/09/2023" max="24/09/2023">
+            </label>
+            <button type="submit">Enviar</button>
+        </fieldset>
+    </form>
+
+    <div id="contenido" style="display: none;">
+        <p><blockquote>Tengo muchas ganas de seguir una vida a tu lado compartiendo cada segundo a tu lado, solo pienso en ti y en todas las cosas que vamos a hacer juntos, vamos a vivir la vida por lo alto como nos lo merecemos desde el principio, vamos a viajar todo lo que queramos y disfrutar sin que nadie nos lo impida, solo has sido tu desde hace mucho tiempo y hoy que cumples 19 años soy yo y siempre yo la persona que esté a tu lado en momentos como este, quiero felicitarte por otro año más, en el que has mejorado como persona y en todos los aspectos, que solo hay que verte y conocerte un poquito para ver que eres una niña de 10, mi niña, que eres perfecta menos mal que te tengo en esta vida y no pienso desperdiciar ni un segundo que pueda tenerte conmigo, quiero seguir estando con tu familia para siempre y compartir con ellos también mis logros, que mi familia no te quiere más porque no se puede, quiero que estés orgullosa de todo lo que has echo por mi y por ti misma para hoy en día estar como estamos, que me pongo a pensar y hace algo más de dos años hablabamos como niños y teníamos nuestras tonterías y miranos ahora, quiero seguir así, tener hijos contigo, saber lo que es ser padre y seguir dandonos abrazos y besooos, cada vez todo es más diferente y sé que lo nuestro va a durar para siempre, que eres lo mejor que tengo y no voy a permitir que nadie te amargue nada nunca más y no pienso que lo pases mal ninguna vez más, y menos hoy, es tu día y te mereces lo mejor, gracias por cada momento juntos, por ser como eres conmigo y darme todas las posibilidades posibles para que esto funcionara, que vas a disfrutar mucho hoy y me voy a encargar yo de que te sientas como una reina que es lo que eres, espero que te encante los regalos que te voy a dar ahora y gracias por todo, Felices 19 y a por una vida juntos💙💙 </blockquote></p>
+
+        <img src="WhatsApp Image 2024-12-11 at 19.40.11 (1).jpeg" width="100" height="125"> 
+        <img src="WhatsApp Image 2024-12-11 at 19.40.11 (2).jpeg"width="100" height="125">
+        <img src="WhatsApp Image 2024-12-11 at 19.40.11.jpeg"width="80" height="125">
+        <img src="WhatsApp Image 2024-12-11 at 21.34.32 (1).jpeg" width="80" height="125">
+        <img src="WhatsApp Image 2024-12-11 at 21.34.32 (2).jpeg" width="80" height="125">
+        <img src="WhatsApp Image 2024-12-11 at 21.34.32 (4).jpeg" width="100" height="125">
+        <img src="WhatsApp Image 2024-12-11 at 21.34.32.jpeg" width="80" height="125">
+        <img src="WhatsApp Image 2024-12-11 at 21.34.33 (1).jpeg" width="80" height="125">
+        <img src="WhatsApp Image 2024-12-11 at 21.34.33 (2).jpeg" width="100" height="125">
+        <img src="WhatsApp Image 2024-12-11 at 21.34.33 (3).jpeg" width="80" height="125">
+        <img src="WhatsApp Image 2024-12-11 at 21.34.33 (4).jpeg" width="100" height="125">
+        <img src="WhatsApp Image 2024-12-11 at 21.34.33 (5).jpeg" width="100" height="125">
+        <img src="WhatsApp Image 2024-12-11 at 21.34.33 (6).jpeg" width="90" height="125">
+        <img src="WhatsApp Image 2024-12-11 at 21.34.33 (7).jpeg" width="80" height="125">
+        <img src="WhatsApp Image 2024-12-11 at 21.46.02.jpeg" width="90" height="125">
+        <img src="WhatsApp Image 2024-12-11 at 21.34.33.jpeg" width="60" height="125">
+    </div>
+    <h1>TEAMO MINIÑA💙🫶 </h1>
+</body>
+</html>
